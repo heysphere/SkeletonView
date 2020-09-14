@@ -52,7 +52,6 @@ extension UILabel {
         super.recoverViewState(forced: forced)
         startTransition { [weak self] in
             self?.textColor = self?.labelState?.textColor
-            self?.text = self?.labelState?.text
             self?.isUserInteractionEnabled = self?.labelState?.isUserInteractionsEnabled ?? false
         }
     }
@@ -73,27 +72,7 @@ extension UITextView {
         super.recoverViewState(forced: forced)
         startTransition { [weak self] in
             self?.textColor = self?.textState?.textColor
-            self?.text = self?.textState?.text
             self?.isUserInteractionEnabled = self?.textState?.isUserInteractionsEnabled ?? false
-        }
-    }
-}
-
-extension UIImageView {
-    var imageState: RecoverableImageViewState? {
-        get { return ao_get(pkey: &ViewAssociatedKeys.imageViewState) as? RecoverableImageViewState }
-        set { ao_setOptional(newValue, pkey: &ViewAssociatedKeys.imageViewState) }
-    }
-    
-    override func saveViewState() {
-        super.saveViewState()
-        imageState = RecoverableImageViewState(view: self)
-    }
-    
-    override func recoverViewState(forced: Bool) {
-        super.recoverViewState(forced: forced)
-        startTransition { [weak self] in
-            self?.image = self?.image == nil || forced ? self?.imageState?.image : self?.image
         }
     }
 }
@@ -112,7 +91,6 @@ extension UIButton {
     override func recoverViewState(forced: Bool) {
         super.recoverViewState(forced: forced)
         startTransition { [weak self] in
-            self?.setTitle(self?.buttonState?.title, for: .normal)
             self?.isUserInteractionEnabled = self?.buttonState?.isUserInteractionsEnabled ?? false
         }
     }
