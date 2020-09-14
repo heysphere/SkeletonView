@@ -21,19 +21,16 @@ struct RecoverableViewState {
 }
 
 struct RecoverableTextViewState {
-    var text: String?
     var textColor: UIColor?
     var isUserInteractionsEnabled: Bool
     
     init(view: UILabel) {
         self.textColor = view.textColor
-        self.text = view.text
         self.isUserInteractionsEnabled = view.isUserInteractionEnabled
     }
     
     init(view: UITextView) {
         self.textColor = view.textColor
-        self.text = view.text
         self.isUserInteractionsEnabled = view.isUserInteractionEnabled
     }
 }
@@ -43,5 +40,13 @@ struct RecoverableImageViewState {
     
     init(view: UIImageView) {
         self.image = view.image
+    }
+}
+
+struct RecoverableButtonViewState {
+    var isUserInteractionsEnabled: Bool
+    
+    init(view: UIButton) {
+        self.isUserInteractionsEnabled = view.isUserInteractionEnabled
     }
 }
