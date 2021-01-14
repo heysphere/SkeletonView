@@ -12,7 +12,7 @@ extension UIView {
     @objc func prepareViewForSkeleton() {
         startTransition { [weak self] in
             self?.backgroundColor = .clear
-            self?.isUserInteractionEnabled = false
+//            self?.isUserInteractionEnabled = false
         }
     }
 }

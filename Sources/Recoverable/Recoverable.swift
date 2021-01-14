@@ -29,7 +29,7 @@ extension UIView: Recoverable {
         startTransition { [weak self] in
             self?.layer.cornerRadius = storedViewState.cornerRadius
             self?.layer.masksToBounds = storedViewState.clipToBounds
-            self?.isUserInteractionEnabled = storedViewState.isUserInteractionsEnabled
+//            self?.isUserInteractionEnabled = storedViewState.isUserInteractionsEnabled
             
             if self?.backgroundColor == .clear || forced {
                 self?.backgroundColor = storedViewState.backgroundColor
@@ -100,7 +100,7 @@ extension UIButton {
     override func recoverViewState(forced: Bool) {
         super.recoverViewState(forced: forced)
         startTransition { [weak self] in
-            self?.isUserInteractionEnabled = self?.buttonState?.isUserInteractionsEnabled ?? false
+//            self?.isUserInteractionEnabled = self?.buttonState?.isUserInteractionsEnabled ?? false
         }
     }
 }
