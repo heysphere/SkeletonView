@@ -104,24 +104,24 @@ extension UIButton {
         }
     }
 }
-
-extension UIButton {
-    var buttonState: RecoverableButtonViewState? {
-        get { return ao_get(pkey: &ViewAssociatedKeys.buttonViewState) as? RecoverableButtonViewState }
-        set { ao_setOptional(newValue, pkey: &ViewAssociatedKeys.buttonViewState) }
-    }
-    
-    override func saveViewState() {
-        super.saveViewState()
-        buttonState = RecoverableButtonViewState(view: self)
-    }
-    
-    override func recoverViewState(forced: Bool) {
-        super.recoverViewState(forced: forced)
-        startTransition { [weak self] in
-            if self?.title(for: .normal) == nil {
-                self?.setTitle(self?.buttonState?.title, for: .normal)
-            }
-        }
-    }
-}
+//
+//extension UIButton {
+//    var buttonState: RecoverableButtonViewState? {
+//        get { return ao_get(pkey: &ViewAssociatedKeys.buttonViewState) as? RecoverableButtonViewState }
+//        set { ao_setOptional(newValue, pkey: &ViewAssociatedKeys.buttonViewState) }
+//    }
+//
+//    override func saveViewState() {
+//        super.saveViewState()
+//        buttonState = RecoverableButtonViewState(view: self)
+//    }
+//
+//    override func recoverViewState(forced: Bool) {
+//        super.recoverViewState(forced: forced)
+//        startTransition { [weak self] in
+//            if self?.title(for: .normal) == nil {
+//                self?.setTitle(self?.buttonState?.title, for: .normal)
+//            }
+//        }
+//    }
+//}
